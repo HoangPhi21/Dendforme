@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <script>
+     function upload(files)
+    {
+        for(var i=0;i<files.leght;i++)
+        document.getElementById("thongbao").innerText=files[0].name+ "<br>"
+    }
+    function toado()
+    {
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(toado){
+                var kinhdo=toado.coords.latitude;
+                var vido=toado.coords.longitude;
+                document.getElementById("thongbao")
+                    .innerHTML="kd: "+ kinhdo + "vd: "+vido
+            })
+        }
+        else{
+            document.getElementById("thongbao").innerHTML="lay khong duoc"
+        }
+    }
+   </script>
+</head>
+<body>
+    <form name="f1">
+        <input type="file" onchange="upload(this.files)">
+    </form>
+    <button onclick="toado()">lay toa do</button>
+    <div id="thongbao"></div>
+    <div>
+        <video width="1024" height="576" controls>
+            <source src="Elden Ring 2023.03.08 - 13.57.02.01.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>
+</html>
